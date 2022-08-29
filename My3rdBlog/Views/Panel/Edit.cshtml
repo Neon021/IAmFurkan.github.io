@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@model My3rdBlog.ViewModels.PostViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+
+@attribute [Authorize(Roles = "Admin")]
+
+<link rel="stylesheet" href="~/lib/Trumbowyg-main/dist/trumbowyg.min.js">
+
+<div>
+    <form asp-controller="Panel" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input asp-for="Id" type="hidden" />
+        <div>
+            <label>Title</label>
+            <input asp-for="Title" />
+        </div>
+        <div >
+            <label>Body</label>
+            <textarea id="editor" asp-for="Body"></textarea>
+        </div>
+        <div>
+            <label>Description</label>
+            <input asp-for="Description" />
+        </div>
+        <div>
+            <label>Tags</label>
+            <input asp-for="Tags" />
+        </div>
+        <div>
+            <label>Category</label>
+            <input />
+            <select asp-for="Category">
+                <option value="Algorithms">Algorithms</option>
+                <option value="Web">Web</option>
+                <option value="Design Patterns">Design Patterns</option>
+            </select>
+        </div>
+        <div>
+            <label>Image</label>
+            <input asp-for="CurrentImage" type="hidden" />
+            <input asp-for="Image" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+
+@section scripts{
+    <!-- Import jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Import Trumbowyg -->
+    <script src="~/lib/Trumbowyg-main/dist/trumbowyg.min.js"></script>
+
+
+    <script>$('#editor').trumbowyg();</script>
+
+}
