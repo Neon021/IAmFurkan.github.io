@@ -6,10 +6,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <_ContentIncludedByDefault Remove="wwwroot\css\site.min.css" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="DocumentMaker" Version="1.0.1" />
 		<PackageReference Include="jQuery" Version="3.6.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
@@ -29,6 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="appsettings.json" />
 	  <None Include="wwwroot\lib\Trumbowyg-main\.bowerrc" />
 	  <None Include="wwwroot\lib\Trumbowyg-main\.editorconfig" />
 	  <None Include="wwwroot\lib\Trumbowyg-main\.gitattributes" />
