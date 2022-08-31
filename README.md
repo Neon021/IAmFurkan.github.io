@@ -1,6 +1,5 @@
 # This is the source code of the [Blog page made in .NET5 w/ ASP.NET CORE MVC](https://github.com/Neon021/MyBlog)
 
-</div>
 
 - [Overview](#overview)
 - [Service Architecture](#service-architecture)
