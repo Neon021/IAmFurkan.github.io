@@ -5,8 +5,6 @@
 - [Service Architecture](#service-architecture)
 - [Technologies](#technologies)
 - [Architecture](#architecture)
-- [Usage](#usage)
-- [Credits](#credits)
 - [VS Extensions](#vscode-extensions)
 
 
@@ -24,7 +22,6 @@
 - Entity Framework
 - SQL Server
 - PhotoSauce.MagicScaler
-- Trumbowyg Javascript Text Editor
 
 # Architecture
 - MVC Model
@@ -32,13 +29,6 @@
 - Code First 
 - Little functional programming <code>Func<TOut, TIn></code>
 
-# Usage
-
-Simply `git clone https://github.com/Neon021/MyBlog.git` and `dotnet run --project MyBlog`.
-
-# Credits
-
-- [Trumbowyg](https://github.com/Alex-D/Trumbowyg) - A simple, lightweight and beatiful WYSIWYG Javascript Text Editor.
 
 # VS Extensions
 - [DocumetMaker](https://github.com/PaoloCattaneo92/DocumentMaker)
