@@ -6,8 +6,6 @@
 
 @attribute [Authorize(Roles = "Admin")]
 
-<link rel="stylesheet" href="~/lib/Trumbowyg-main/dist/trumbowyg.min.js">
-
 <div>
     <form asp-controller="Panel" asp-action="Edit" method="post" enctype="multipart/form-data">
         <input asp-for="Id" type="hidden" />
@@ -47,13 +45,4 @@
 
 
 @section scripts{
-    <!-- Import jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Import Trumbowyg -->
-    <script src="~/lib/Trumbowyg-main/dist/trumbowyg.min.js"></script>
-
-
-    <script>$('#editor').trumbowyg();</script>
-
 }
