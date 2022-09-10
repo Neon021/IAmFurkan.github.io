@@ -10,7 +10,6 @@
     ViewBag.Keywords = $"{Model.Tags.Replace(",", "")} {Model.Category}";
     var base_path = Context.Request.PathBase;
 }
-@*<link href="~\lib\Trumbowyg-main\dist\ui\trumbowyg.min.css" />*@
 
 
 <div class="container">
@@ -65,9 +64,4 @@
 
     }
 @section scripts{
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="~/lib/Trumbowyg-main/dist/trumbowyg.min.js"></script>
-    <script>
-        $('#editor').trumbowyg();
-    </script>
     }
