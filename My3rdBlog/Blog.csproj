@@ -5,9 +5,7 @@
 		<OutputType>Exe</OutputType>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <Content Remove="appsettings.json" />
-	</ItemGroup>
+	
 
 	<ItemGroup>
 	  <_ContentIncludedByDefault Remove="wwwroot\css\site.min.css" />
@@ -31,8 +29,10 @@
 		<Content Update="wwwroot/content/blog/*.*" CopyToPublishDirectory="Never" />
 	</ItemGroup>
 
+	
+
 	<ItemGroup>
-	  <None Include="appsettings.json" />
+	  <Folder Include="Properties\" />
 	</ItemGroup>
 
 	<ItemGroup>
