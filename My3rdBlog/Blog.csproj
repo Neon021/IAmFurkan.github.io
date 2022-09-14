@@ -35,6 +35,10 @@
 	  <None Include="appsettings.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Properties\" />
+	</ItemGroup>
+
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 		<Touch Files="App_Offline.htm" AlwaysCreate="true" />
 	</Target>
