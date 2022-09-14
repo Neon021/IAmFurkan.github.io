@@ -6,10 +6,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Remove="appsettings.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <_ContentIncludedByDefault Remove="wwwroot\css\site.min.css" />
 	</ItemGroup>
 
@@ -29,10 +25,6 @@
 
 	<ItemGroup>
 		<Content Update="wwwroot/content/blog/*.*" CopyToPublishDirectory="Never" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="appsettings.json" />
 	</ItemGroup>
 
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
