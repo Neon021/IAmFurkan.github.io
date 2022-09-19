@@ -8,40 +8,46 @@
     <meta name="description" content="@ViewBag.Description" />
     <meta name="keywords" content="@ViewBag.Keywords" />
 
-    <environment include="Development">
-        <link href="~/css/site.css" rel="stylesheet" />
-    </environment>
-
-    <environment include="Production">
-        <link href="~/css/site.min.css" rel="stylesheet" />
-    </environment>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
+
 <body>
-    <div>
-        <nav>
-            <a asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-controller="Home" asp-action="Index" asp-route-category="Algorithms">Algorithms</a>
-            <a asp-controller="Home" asp-action="Index" asp-route-category="Web">Web</a>
-            <a asp-controller="Home" asp-action="Index" asp-route-category="Design Patterns">Design Patterns</a>
-            <a asp-controller="Panel" asp-action="Edit">Create Post</a>
-            @if (User.Identity.IsAuthenticated)
-            {
-                @if (User.IsInRole("Admin"))
+    <header>
+        <div class="menu-button">Menu</div>
+        <ol class="flexnav" data-breakpoint="800">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Home" asp-action="Index" asp-route-category="Algorithms">Algorithms</a></li>
+            <li><a asp-controller="Home" asp-action="Index" asp-route-category="Web">Web</a></li>
+            <li><a asp-controller="Home" asp-action="Index" asp-route-category="Design Patterns">Design Patterns</a></li>
+            <li>
+                <a asp-controller="Panel" asp-action="Edit">Create Post</a>
+                @if (User.Identity.IsAuthenticated)
                 {
-                    <a asp-controller="Panel" asp-action="Index" asp-route-category="Panel">Admin Panel</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Panel" asp-action="Index" asp-route-category="Panel">Admin Panel</a>
+                    }
+                    <a asp-controller="Auth" asp-action="Logout">Logout</a>
                 }
-                <a asp-controller="Auth" asp-action="Logout">Logout</a>
-            }
-            else
-            {
-                <a asp-controller="Auth" asp-action="Login">Sign In</a>
-            }
-        </nav>
+                else
+                {
+                    <a asp-controller="Auth" asp-action="Login">Sign In</a>
+                }
+            </li>
+        </ol>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
-    <div>
-        @RenderBody()
-    </div>
-    @RenderSection("scripts", false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("scripts", false)
 </body>
 </html>
