@@ -13,18 +13,14 @@
 
 
 <div class="container">
-    <div class="post no-shadow">
-        @if (!String.IsNullOrEmpty(Model.Image))
-        {
-            var image_path = $"{base_path}/Image/{Model.Image}";
-            <img src="@image_path" />
-            <span class="title">@Model.Title</span>
-        }
+
+    <div class="post-title">
+        @Model.Title
+    </div>
+    <div class="post-body">
+        @Model.Body
     </div>
 
-    <div class="post-body">
-        @Html.Raw(Model.Body)
-    </div>
 
     @if (User.Identity.IsAuthenticated)
     {
@@ -35,9 +31,13 @@
 
             @foreach (var c in Model.MainComments)
             {
-                <p>
-                    @c.Message --- @c.Created
-                </p>
+                <div class="user-comment">
+                    <p>
+                        @c.Message --- @c.Created
+                    </p>
+                </div>
+
+                
                 <div style="margin-left: 20px;">
                     <h4>Sub Comments</h4>
                     @{
@@ -56,12 +56,11 @@
     }
     else
     {
-        <div>
-            <a asp-action="Login" asp-controller="Auth">Sign In</a> You should sign in to comment on this post
+        <div class="form-horizontal">
+            <a class="btn signin" asp-action="Login" asp-controller="Auth">Sign In</a> You should sign in to comment on this post
         </div>
     }
 </div>
 
-    }
 @section scripts{
-    }
+    }   

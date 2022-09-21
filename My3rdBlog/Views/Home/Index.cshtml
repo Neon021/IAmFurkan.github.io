@@ -4,36 +4,50 @@
 @model IndexViewModel
 
 @{
-    ViewBag.Title = "A Blog by Me";
+    ViewBag.Title = "IAmFurkan";
     ViewBag.Description = "A blog website made by a newbie to explain and understand algorithms";
     ViewBag.Keywords = "blog programming algorithms design patterns";
     var base_path = Context.Request.PathBase;
 }
 
-<div class="main-img">
-    <span class="title">My Blog</span>
+<div class="main-page">
+    <span class="title">IAmFurkan</span>
     <form asp-controller="Home" asp-action="Index" method="get">
         <input type="hidden" name="pageNumber" value="@Model.PageNumber" />
         <input type="hidden" name="category" value="@Model.Category" />
-        <input class="search" type="text" name="search" placeholder="Search Blog" value="@Model.Search" />
-        <button class="submit-btn">Search</button>
+        <div class="wrap">
+            <div class="search">
+                <input class="searchTerm" type="text" name="search" placeholder="Search Blog" value="@Model.Search" />
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
     </form>
 </div>
 
 
-<div class="container">
+<div class="wrap">
 
-<partial name="_BlogPagination" model="Model" />
+    <partial name="_BlogPagination" model="Model" />
 
     @foreach (var post in Model.Posts)
     {
         var image_path = $"{base_path}/Image/{post.Image}";
-        <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+
+        <div class="tile">
             <img src="@image_path" />
-            <span class="title">
-                @post.Title
-            </span>
-        </a>
+            <div class="text">
+                <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id"></a>
+                <h1 class="animate-text">@post.Title</h1>
+                <p class="animate-text">@post.Description</p>
+            </div>
+        </div>
     }
     <partial name="_BlogPagination" model="Model" />
 </div>
+
+
+<footer class="footer">
+
+</footer>
