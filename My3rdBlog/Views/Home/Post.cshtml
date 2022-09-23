@@ -22,44 +22,53 @@
     </div>
 
 
-    @if (User.Identity.IsAuthenticated)
-    {
-        <div class="comment-section">
-            @{
-                await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = 0 });
-            }
+    <div class="container mb-5 mt-5">
 
-            @foreach (var c in Model.MainComments)
+        <div class="card">
+            @if (User.Identity.IsAuthenticated)
             {
-                <div class="user-comment">
-                    <p>
-                        @c.Message --- @c.Created
-                    </p>
-                </div>
-
-                
-                <div style="margin-left: 20px;">
-                    <h4>Sub Comments</h4>
+                <div class="comment-section">
                     @{
-                        await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = c.Id });
+                        await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = 0 });
                     }
-
-                    @foreach (var sc in c.subComments)
+                    @foreach (var c in Model.MainComments)
                     {
-                        <p>
-                            @sc.Message --- @sc.Created
-                        </p>
+                        <div class="comment-text-sm">
+                            <span>
+                                @c.Message 
+                            </span>
+                        </div>
+                        <div class="comment-text-sm">
+                            <span>
+                                @c.Created 
+                            </span>
+                        </div>
+
+
+                        <div style="margin-left: 20px;">
+                            <h4>Sub Comments</h4>
+                            @{
+                                await Html.RenderPartialAsync("_MainComment", new CommentViewModel { PostId = Model.Id, MainCommentId = c.Id });
+                            }
+
+                            @foreach (var sc in c.subComments)
+                            {
+                                <p>
+                                    @sc.Message --- @sc.Created
+                                </p>
+                            }
+                        </div>
                     }
                 </div>
             }
+            else
+            {
+                <div class="form-horizontal">
+                    <a class="bn1" asp-action="Login" asp-controller="Auth">Sign In</a> Sign in to comment on this post
+                </div>
+            }
         </div>
-    }
-    else
-    {
-        <div class="form-horizontal">
-            <a class="btn signin" asp-action="Login" asp-controller="Auth">Sign In</a> You should sign in to comment on this post
-        </div>
-    }
+    </div>
 </div>
 
 @section scripts{

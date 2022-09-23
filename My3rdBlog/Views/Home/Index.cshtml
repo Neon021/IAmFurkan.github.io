@@ -9,45 +9,63 @@
     ViewBag.Keywords = "blog programming algorithms design patterns";
     var base_path = Context.Request.PathBase;
 }
-
-<div class="main-page">
-    <span class="title">IAmFurkan</span>
-    <form asp-controller="Home" asp-action="Index" method="get">
-        <input type="hidden" name="pageNumber" value="@Model.PageNumber" />
-        <input type="hidden" name="category" value="@Model.Category" />
-        <div class="wrap">
-            <div class="search">
-                <input class="searchTerm" type="text" name="search" placeholder="Search Blog" value="@Model.Search" />
-                <button type="submit" class="searchButton">
-                    <i class="fa fa-search"></i>
-                </button>
+<body id="mainpage">
+    <div class="main-page">
+        <span class="title">IAmFurkan</span>
+        <form asp-controller="Home" asp-action="Index" method="get">
+            <input type="hidden" name="pageNumber" value="@Model.PageNumber" />
+            <input type="hidden" name="category" value="@Model.Category" />
+            <div class="snow"></div>
+            <div class="wrap">
+                <div class="search">
+                    <input class="searchTerm" type="text" name="search" placeholder="Search Blog" value="@Model.Search" />
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
 
-<div class="wrap">
+    <div class="wrap">
 
-    <partial name="_BlogPagination" model="Model" />
+        <partial name="_BlogPagination" model="Model" />
 
-    @foreach (var post in Model.Posts)
-    {
-        var image_path = $"{base_path}/Image/{post.Image}";
+        @foreach (var post in Model.Posts)
+        {
+            var image_path = $"{base_path}/Image/{post.Image}";
 
-        <div class="tile">
-            <img src="@image_path" />
-            <div class="text">
-                <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id"></a>
-                <h1 class="animate-text">@post.Title</h1>
-                <p class="animate-text">@post.Description</p>
+            <div class="tile">
+                <img src="@image_path" />
+                <div class="text">
+                    <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id"></a>
+                    <h1 class="animate-text">@post.Title</h1>
+                    <p class="animate-text">@post.Description</p>
+                </div>
             </div>
-        </div>
-    }
-    <partial name="_BlogPagination" model="Model" />
-</div>
+        }
+        <partial name="_BlogPagination" model="Model" />
+    </div>
+</body>
 
 
-<footer class="footer">
 
+<footer class="div-footer">
+    <ul>
+        <li class="footer-ul"><a href="mailto:bilalyigit594@gmail.com">Email</a></li>
+        <li class="footer-ul"><a href="https://twitter.com/bilalfurkan21">Twitter</a></li>
+        <li class="footer-ul">
+            <a href="https://www.linkedin.com/in/furkan-yigit/">LinkedIn</a>
+        </li>
+        <li class="footer-ul">
+            <a href="https://github.com/Neon021">Github</a>
+        </li>
+        <li class="footer-ul">
+            <a href="https://www.codewars.com/users/Neon021">Codewars</a>
+        </li>
+        <li class="footer-ul">
+            <p>👋</p>
+        </li>
+    </ul>
 </footer>

@@ -7,18 +7,20 @@
 
 }
  @*@attribute [Authorize(Roles = "Admin")]*@
-<h2>Admin Panel!</h2>
+ <header >
+    <h2 class="admin-title">Admin Panel!</h2>
+</header>
 
-<a asp-controller="Panel" asp-action="Edit">
+<a class="bn1" asp-controller="Panel" asp-action="Edit">
     Add New Post
 </a>
 
-<div>
+<div class="div-footer">
     <ul>
         @foreach (var post in Model)
         {
-            <li>
-                    @post.Title
+            <li class="admin-ul">
+                <a class="title" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">@post.Title</a>
                 <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id" >
                     Edit
                 </a>
