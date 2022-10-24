@@ -6,6 +6,12 @@
 
 @attribute [Authorize(Roles = "Admin")]
 
+<head>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+</head>
+
 <div>
     <form asp-controller="Panel" asp-action="Edit" method="post" enctype="multipart/form-data">
         <input asp-for="Id" type="hidden" />

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace My3rdBlog.ViewModels
 {
@@ -14,6 +15,7 @@ namespace My3rdBlog.ViewModels
         [Required]
         public int MainCommentId { get; set; }
         [Required]
+        [AllowHtml]
         public string Message { get; set; }
     }
 }

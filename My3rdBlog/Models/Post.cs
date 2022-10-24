@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Blog.Models
 {
@@ -12,6 +13,7 @@ namespace Blog.Models
     {
         public int Id { get; set; }
         public string Title { get; set; } = "";
+        [AllowHtml]
         public string Body { get; set; } = "";
         public string Image { get; set; } = "";
         public string Description { get; set; } = "";
