@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using My3rdBlog.Services.Email;
 using My3rdBlog.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace My3rdBlog.Contollers
@@ -44,7 +40,7 @@ namespace My3rdBlog.Contollers
             {
                 return RedirectToAction("Index", "Panel");
             }
-            
+
             return RedirectToAction("Index", "Home");
         }
 

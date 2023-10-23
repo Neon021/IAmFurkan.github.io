@@ -1,14 +1,12 @@
-﻿using Blog.Models;
+﻿using Blog.Helpers;
+using Blog.Models;
+using Blog.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using My3rdBlog.Data.Comments;
-using Blog.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow.CommonModels;
-using Blog.Helpers;
 
 namespace Blog.Data.Repository
 {

@@ -1,13 +1,8 @@
 ﻿using Blog.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using TechTalk.SpecFlow.CommonModels;
-using My3rdBlog.Data.Comments;
 using Blog.ViewModels;
+using My3rdBlog.Data.Comments;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Blog.Data.Repository
 {

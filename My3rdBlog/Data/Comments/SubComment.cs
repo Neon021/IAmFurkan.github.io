@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace My3rdBlog.Data.Comments
+﻿namespace My3rdBlog.Data.Comments
 {
-    public class SubComment: Comment
+    public class SubComment : Comment
     {
         public int MainCommentId { get; set; }
     }

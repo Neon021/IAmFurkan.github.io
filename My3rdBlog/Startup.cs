@@ -30,9 +30,11 @@ namespace My3rdBlog
             services.AddRazorPages();
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
-            services.Configure<SmtpSettings>(_config.GetSection("SmtpSettings"));         
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
-                _config.GetConnectionString("Default")));
+            services.Configure<SmtpSettings>(_config.GetSection("SmtpSettings"));
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
+            //    _config.GetConnectionString("Default")));
+            services.AddDbContext<AppDbContext>(options =>
+                    options.UseNpgsql("Server=localhost;Port=5432;User Id=postgres;Password=admin;Database=Blog"));
 
 
 
@@ -55,7 +57,7 @@ namespace My3rdBlog
             services.AddTransient<IRepository, Repository>();
             services.AddTransient<IFileManager, FileManager>();
             services.AddSingleton<IEmailService, EmailService>();
-            
+
             services.AddMvc(options =>
             {
                 options.CacheProfiles.Add("Monthly", new CacheProfile { Duration = 60 * 60 * 24 * 7 * 4 });

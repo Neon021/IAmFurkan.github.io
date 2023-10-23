@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
-using My3rdBlog.Data.Comments;
+﻿using My3rdBlog.Data.Comments;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Blog.Models

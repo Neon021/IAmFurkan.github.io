@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using My3rdBlog.Data.FileManager;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PhotoSauce.MagicScaler;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace My3rdBlog.Data.FileManager
 {
@@ -32,12 +28,12 @@ namespace My3rdBlog.Data.FileManager
                 var file = Path.Combine(_imagePath, image);
                 if (File.Exists(file))
                     File.Delete(file);
-                    return true;
+                return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return false;   
+                return false;
             }
         }
 
@@ -70,14 +66,14 @@ namespace My3rdBlog.Data.FileManager
         }
 
         [Obsolete]
-        private ProcessImageSettings ImageOptions() => new ProcessImageSettings
+        private ProcessImageSettings ImageOptions() => new()
         {
             Width = 800,
             Height = 500,
             ResizeMode = CropScaleMode.Crop,
-            SaveFormat = FileFormat.Jpeg,
-            JpegQuality = 100,
-            JpegSubsampleMode = ChromaSubsampleMode.Subsample420
+            //SaveFormat = FileFormat.Jpeg,
+            //JpegQuality = 100,
+            //JpegSubsampleMode = ChromaSubsampleMode.Subsample420
         };
     }
 }
