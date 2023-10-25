@@ -49,7 +49,7 @@ namespace My3rdBlog.Data.FileManager
                 }
 
                 var mime = image.FileName.Substring(image.FileName.LastIndexOf('.'));
-                var fileName = $"img_{DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss")}{mime}";
+                var fileName = $"img_{DateTime.UtcNow:dd-MM-yyyy-HH-mm-ss}{mime}";
 
                 using (var fileStream = new FileStream(Path.Combine(save_path, fileName), FileMode.Create))
                 {
@@ -71,9 +71,9 @@ namespace My3rdBlog.Data.FileManager
             Width = 800,
             Height = 500,
             ResizeMode = CropScaleMode.Crop,
-            //SaveFormat = FileFormat.Jpeg,
-            //JpegQuality = 100,
-            //JpegSubsampleMode = ChromaSubsampleMode.Subsample420
+            SaveFormat = FileFormat.Jpeg,
+            JpegQuality = 100,
+            JpegSubsampleMode = ChromaSubsampleMode.Subsample420
         };
     }
 }
